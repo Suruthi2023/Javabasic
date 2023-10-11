@@ -1,0 +1,412 @@
+1.Digit Count of given number
+
+import java.util.Scanner;
+
+public class DigitCount 
+{
+public static void main(String[] args) 
+{
+Scanner scanner = new Scanner(System.in);
+System.out.print("Enter a number: ");
+String input = scanner.nextLine();
+input = input.trim();
+int digitCount = 0;
+for (int i = 0; i < input.length(); i++) 
+{
+if (Character.isDigit(input.charAt(i))) 
+{
+                digitCount++;
+}
+}
+System.out.println("Number of digits: " + digitCount);
+}
+}
+
+2.Sum of Digits of given number
+
+import java.util.Scanner;
+
+public class SumOfDigits 
+{
+public static void main(String[] args) 
+{
+Scanner scanner = new Scanner(System.in);
+System.out.print("Enter a number: ");
+String input = scanner.nextLine().trim();
+int sum = 0;
+for (int i = 0; i < input.length(); i++) 
+{
+if (Character.isDigit(input.charAt(i))) 
+{
+sum += Character.getNumericValue(input.charAt(i));
+}
+}
+System.out.println("Sum of digits: " + sum);
+}
+}
+
+3.Reverse of given number
+
+import java.util.Scanner;
+
+public class ReversedNumber 
+{
+public static void main(String[] args)
+{
+Scanner scanner = new Scanner(System.in);
+System.out.print("Enter a number: ");
+int number = scanner.nextInt();
+int reversedNumber = 0;
+while (number != 0)
+{
+int digit = number % 10;
+reversedNumber = reversedNumber * 10 + digit;
+number /= 10;
+}
+System.out.println("Reversed number: " + reversedNumber);
+    }
+}
+
+
+4.Power of given Number
+
+import java.util.Scanner;
+
+public class PowerOfNumber 
+{
+public static void main(String[] args) 
+{
+Scanner scanner = new Scanner(System.in);
+System.out.print("Enter the base number: ");
+double base = scanner.nextDouble();
+System.out.print("Enter the exponent: ");
+double exponent = scanner.nextDouble();
+double result = Math.pow(base, exponent);
+System.out.println(result);
+}
+}
+
+5.Prime number Checking
+
+import java.util.Scanner;
+public class Prime
+{  
+public static void main(String[] args) 
+   {  
+       Scanner sc = new Scanner(System.in);  
+       System.out.println("Enter a number : ");  
+       int num = sc.nextInt();  
+       int flag=0; 
+       int i, temp=num/2;      
+       if(num==0||num==1)
+       {  
+          System.out.println(num+" is not prime number");      
+       }
+       else
+       {  
+         for(i=2;i<=temp;i++)
+         {      
+           if(num%i==0)
+           {      
+               System.out.println(num+" is not a prime number");      
+               flag=1;      
+               break;      
+           }      
+         }      
+         if(flag==0)  
+         { 
+             System.out.println(num+" is a prime number");  
+         }  
+        } 
+   }   
+} 
+
+6.Factorial of a given Number
+
+import java.util.Scanner;
+
+public class Factorial
+{
+public static void main(String[] args)
+   {
+      int num, i, fact=1;
+      Scanner s = new Scanner(System.in);
+      
+      System.out.print("Enter a Number: ");
+      num = s.nextInt();
+      
+      for(i=num; i>=1; i--)
+      {
+         fact = fact*i;
+      }
+      
+      System.out.println("\nFactorial= " +fact);
+   }
+} 
+
+7.Sum Till Single Digit
+
+import java.util.Scanner;
+
+public class SumToSingleDigit 
+{
+public static void main(String[] args) 
+{
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        
+        int result = num;
+        while (result >= 10) {
+            int sum = 0;
+            while (result > 0) {
+                sum += result % 10;
+                result /= 10;
+            }
+            result = sum;
+        }
+        
+        System.out.println("The sum of digits to a single digit is: " + result);
+        
+        scanner.close();
+    }
+}
+
+8.Binary to decimal conversation
+
+public class Binary{
+    public static void main(String[] args) {
+        int num = 1011;
+        int rem;
+        int ans = 0;
+        int i = 0;
+
+        while (num > 0) {
+            rem = num % 10;
+            ans = ans + rem * (int) Math.pow(2, i);
+            i++;
+            num = num / 10;
+        }
+
+        System.out.printf("the decimal value is %d", ans);
+    }
+}
+
+9.Fibonacci series
+
+import java.util.Scanner;
+
+public class FibonacciSeries 
+{
+public static void main(String[] args) 
+{
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of Fibonacci numbers to generate: ");
+        int n = scanner.nextInt();
+        
+        int first = 0, second = 1;
+        
+        System.out.print("Fibonacci Series: ");
+        
+        for (int i = 0; i < n; i++) {
+            if (i == 0) {
+                System.out.print(first);
+            } else if (i == 1) {
+                System.out.print(", " + second);
+            } else {
+                int next = first + second;
+                System.out.print(", " + next);
+                first = second;
+                second = next;
+            }
+        }
+
+    }
+}
+
+10.Armstrong Number checking
+
+
+import java.util.Scanner;
+
+public class ArmstrongNumber 
+{
+public static void main(String[] args) 
+{
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        
+        if (isArmstrong(number)) {
+            System.out.println(number + " is an Armstrong number.");
+        } else {
+            System.out.println(number + " is not an Armstrong number.");
+        }
+
+    }
+    
+public static boolean isArmstrong(int num) 
+{
+        int originalNum = num;
+        int sum = 0;
+        int numDigits = (int)Math.log10(num) + 1; 
+        
+        while (num > 0) {
+            int digit = num % 10;
+            sum += Math.pow(digit, numDigits);
+            num /= 10;
+        }
+        
+        return sum == originalNum;
+    }
+}
+
+11.Prime number Between the range
+
+import java.util.Scanner;
+
+public class PrimeNumbersInRange 
+{
+public static void main(String[] args) 
+{
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the lower bound of the range: ");
+        int lowerBound = scanner.nextInt();
+
+        System.out.print("Enter the upper bound of the range: ");
+        int upperBound = scanner.nextInt();
+
+        System.out.println("Prime numbers between " + lowerBound + " and " + upperBound + ":");
+        
+        for (int num = lowerBound; num <= upperBound; num++) {
+            if (isPrime(num)) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+
+public static boolean isPrime(int num) 
+{
+        if (num <= 1) 
+{
+            return false;
+        }
+        if (num <= 3) 
+{
+            return true;
+        }
+        if (num % 2 == 0 || num % 3 == 0) 
+{
+            return false;
+        }
+
+        for (int i = 5; i * i <= num; i += 6) 
+{
+            if (num % i == 0 || num % (i + 2) == 0) 
+{
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+12.Sum of prime digits in the given number
+
+import java.util.Scanner;
+
+public class SumOfPrimes 
+{
+public static void main(String[] args) 
+{
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter the lower bound: ");
+        int lowerBound = input.nextInt();
+        
+        System.out.print("Enter the upper bound: ");
+        int upperBound = input.nextInt();
+        
+        int sumOfPrimes = 0;
+        
+        for (int number = lowerBound; number <= upperBound; number++) 
+       {
+            if (isPrime(number)) 
+        {
+                sumOfPrimes += number;
+            }
+        }
+        
+        System.out.println("Sum of prime numbers between " + lowerBound + " and " + upperBound + " is: " + sumOfPrimes);
+    }
+
+    public static boolean isPrime(int n) 
+{
+        if (n <= 1) 
+{
+            return false;
+        }
+        
+        for (int i = 2; i <= Math.sqrt(n); i++) 
+{
+            if (n % i == 0) 
+{
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+
+13.Binary addition
+
+public class BinaryAddition {
+    public static void main(String[] args) {
+        String binary1 = "1010"; 
+        String binary2 = "1101"; 
+
+        int decimal1 = Integer.parseInt(binary1, 2);
+        int decimal2 = Integer.parseInt(binary2, 2);
+
+        int sum = decimal1 + decimal2;
+        String binarySum = Integer.toBinaryString(sum);
+
+        System.out.println("Binary1: " + binary1);
+        System.out.println("Binary2: " + binary2);
+        System.out.println(binary1+binary2);
+        
+    }
+}
+
+14.Half reverse of a Number
+
+import java.util.*;
+public class ReverseFirstHalf
+{
+	public static void main(String[]args){
+        int n = 6;
+        int[] arr = {11, 12, 13, 14, 15, 16, 17};
+        int half = n / 2;
+        int left = half;
+        int right = n - 1;
+
+        while (left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+
+        System.out.println("the reverse array is ");
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}
